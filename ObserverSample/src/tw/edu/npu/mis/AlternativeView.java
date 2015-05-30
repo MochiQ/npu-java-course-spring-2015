@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015, Samael Wang <freesamael@gmail.com>
+ * Copyright (c) 2015, user
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -25,28 +25,44 @@
  */
 package tw.edu.npu.mis;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 /**
- * Simulation of a GUI application.
  *
- * @author Samael Wang <freesamael@gmail.com>
- */
-public class ObserverSample {
+ * @author user
+ */   
 
-    public static void main(String[] args) {
-        // Initialize MVC and Window objects.
-        Window window = new Window();
-        Model model = new Model();
-        Controller controller = new Controller(model);
-        List<Showable> views = new ArrayList<>();
-        views.add((Showable) new View("View 1", window, model));
-        views.add((Showable) new View("View 2", window, model));
-        views.add((Showable) new View("View 3", window, model));
-        views.add(new AlternativeView("AlternativeView", window, model));
+   public class AlternativeView implements Observer,Showable {
 
-        // Start the event loop.
-        window.startEventLoop(controller, views);
+    private final String mName;
+    private final Window mWindow;
+    private final Model mModel;
+    
+    public AlternativeView(String name, Window window, Model model) {
+        mName = name;
+        mWindow = window;
+        mModel = model;
+        mModel.Add((java.util.Observer) this);
     }
+
+    /**
+     * Invalidate the view, which indicates it needs to be redrawn later.
+     */
+    private void invalidate() {
+        mWindow.schduleRedraw(this);
+    }
+
+    /**
+     * Show the content of the model on the console.
+     */
+    public void onDraw() {
+        System.out.println("AlternativeView (" + mName + "): " + new StringBuilder(mModel.getData()).reverse());
+    }
+
+    @Override
+    public void update() {
+        invalidate();
+    }
+
+    
 }
