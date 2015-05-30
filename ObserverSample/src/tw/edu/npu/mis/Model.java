@@ -47,9 +47,14 @@ public class Model extends Subject{
      * Update model.
      *
      * @param data A {@link String} data.
-     */
+     */       
     public void setData(String data) {
         mData = data;
+        notifycation();
+    }
+
+    void Add(View aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

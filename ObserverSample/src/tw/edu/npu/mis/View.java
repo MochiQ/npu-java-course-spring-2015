@@ -40,6 +40,7 @@ public class View {
         mName = name;
         mWindow = window;
         mModel = model;
+        mModel.Add(this);
     }
 
     /**
@@ -56,4 +57,7 @@ public class View {
         System.out.println("View (" + mName + "): " + mModel.getData());
     }
 
+    public void update() {
+        invalidate();
+    }
 }

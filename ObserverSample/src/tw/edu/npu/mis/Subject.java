@@ -25,6 +25,7 @@
  */
 package tw.edu.npu.mis;
 
+import java.util.ArrayList;
 import java.util.Observer;
 
 /**
@@ -32,15 +33,17 @@ import java.util.Observer;
  * @author STP
  */
 public class Subject {
-     public void attach(Observer o){
-    
+     ArrayList<Observer> arraylist = new ArrayList();
+     void Add(Observer o){
+        arraylist.add(o);
+    }
+    void reMove(Observer o){
+        arraylist.remove(o);
     }
     
-    public void detach(Observer o){
-    
-    }
-    
-    public void notifyobserver(){
-    
+    void notifycation(){
+        for(Observer o : arraylist){
+            o.update(null,o);
+        }
     }
 }
