@@ -47,7 +47,7 @@ public class View {
      * Invalidate the view, which indicates it needs to be redrawn later.
      */
     public void invalidate() {
-        mWindow.schduleRedraw((Showable) this);
+        mWindow.schduleRedraw(this);
     }
 
     /**

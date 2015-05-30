@@ -40,11 +40,10 @@ public class ObserverSample {
         Window window = new Window();
         Model model = new Model();
         Controller controller = new Controller(model);
-        List<Showable> views = new ArrayList<>();
-        views.add((Showable) new View("View 1", window, model));
-        views.add((Showable) new View("View 2", window, model));
-        views.add((Showable) new View("View 3", window, model));
-        views.add(new AlternativeView("AlternativeView", window, model));
+        List<View> views = new ArrayList<>();
+        views.add(new View("View 1", window, model));
+        views.add(new View("View 2", window, model));
+        views.add(new View("View 3", window, model));
 
         // Start the event loop.
         window.startEventLoop(controller, views);
