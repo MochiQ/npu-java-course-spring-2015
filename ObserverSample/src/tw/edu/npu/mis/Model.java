@@ -52,7 +52,10 @@ public class Model extends Subject{
         mData = data;
         notifycation();
     }
-
+/**
+ * call add 
+ * @param aThis 
+ */
     void Add(View aThis) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

@@ -26,7 +26,7 @@
 package tw.edu.npu.mis;
 
 /**
- *
+ *call observer to update
  * @author user
  */
 public interface Observer {

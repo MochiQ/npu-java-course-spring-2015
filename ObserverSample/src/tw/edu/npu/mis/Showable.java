@@ -28,7 +28,9 @@ package tw.edu.npu.mis;
 /**
  *
  * @author user
+ * inherit object to do ondraw
  */
+
 public interface Showable {
     void onDraw();
 }

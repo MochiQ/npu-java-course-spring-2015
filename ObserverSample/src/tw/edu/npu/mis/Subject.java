@@ -34,13 +34,31 @@ import java.util.Observer;
  */
 public class Subject {
      ArrayList<Observer> arraylist = new ArrayList();
+     
+     /**
+     *
+     * add object in arraylist
+     * @param o
+     */
      void Add(Observer o){
         arraylist.add(o);
     }
+     
+     /**
+     *
+     * remove object in arraylist
+     * @param o
+     */
     void reMove(Observer o){
         arraylist.remove(o);
     }
     
+    
+    /**
+     *
+     * update object at arraylist
+     * @param o
+     */
     void notifycation(){
         for(Observer o : arraylist){
             o.update(null,o);

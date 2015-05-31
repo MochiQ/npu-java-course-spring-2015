@@ -27,15 +27,23 @@ package tw.edu.npu.mis;
 
 /**
  * {@link View} generates outputs to the user.
- *
+ *set up view
  * @author Samael Wang <freesamael@gmail.com>
  */
+
 public class View {
 
     private final String mName;
     private final Window mWindow;
     private final Model mModel;
-
+    
+    /**
+     * 
+     * @param name set up name
+     * @param window set up view in Window
+     * @param model set up View to read Model。
+     */
+    
     public View(String name, Window window, Model model) {
         mName = name;
         mWindow = window;
@@ -57,6 +65,9 @@ public class View {
         System.out.println("View (" + mName + "): " + mModel.getData());
     }
 
+    /**
+     * override Update and to do
+     */
     public void update() {
         invalidate();
     }

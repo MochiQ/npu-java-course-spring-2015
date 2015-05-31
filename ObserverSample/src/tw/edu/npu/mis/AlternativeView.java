@@ -38,6 +38,13 @@ package tw.edu.npu.mis;
     private final Window mWindow;
     private final Model mModel;
     
+     /**
+     *call AlternativeView Class Construtor
+     * @param name
+     * @param window
+     * @param model 
+     */
+    
     public AlternativeView(String name, Window window, Model model) {
         mName = name;
         mWindow = window;
@@ -59,6 +66,10 @@ package tw.edu.npu.mis;
         System.out.println("AlternativeView (" + mName + "): " + new StringBuilder(mModel.getData()).reverse());
     }
 
+    /**
+     * override Update to do 
+     */
+    
     @Override
     public void update() {
         invalidate();

@@ -35,6 +35,13 @@ import java.util.List;
  */
 public class ObserverSample {
 
+ /**
+ * new window and model object
+ * add view in list 
+ * run startEventLoop
+ * @param args 
+ */
+
     public static void main(String[] args) {
         // Initialize MVC and Window objects.
         Window window = new Window();
