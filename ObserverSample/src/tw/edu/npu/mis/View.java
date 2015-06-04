@@ -31,7 +31,7 @@ package tw.edu.npu.mis;
  * @author Samael Wang <freesamael@gmail.com>
  */
 
-public class View {
+public class View implements Observer,Showable {
 
     private final String mName;
     private final Window mWindow;
@@ -44,7 +44,7 @@ public class View {
      * @param model set up View to read Model。
      */
     
-    public View(String name, Window window, Model model) {
+    public View(String name, Window window, Model model)  {
         mName = name;
         mWindow = window;
         mModel = model;
@@ -55,7 +55,7 @@ public class View {
      * Invalidate the view, which indicates it needs to be redrawn later.
      */
     public void invalidate() {
-        mWindow.schduleRedraw((Showable) this);
+        mWindow.schduleRedraw(this);
     }
 
     /**

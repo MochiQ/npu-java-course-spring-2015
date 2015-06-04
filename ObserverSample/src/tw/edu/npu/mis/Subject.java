@@ -26,7 +26,7 @@
 package tw.edu.npu.mis;
 
 import java.util.ArrayList;
-import java.util.Observer;
+
 
 /**
  *
@@ -61,7 +61,7 @@ public class Subject {
      */
     void notifycation(){
         for(Observer o : arraylist){
-            o.update(null,o);
+            o.update();
         }
     }
 }

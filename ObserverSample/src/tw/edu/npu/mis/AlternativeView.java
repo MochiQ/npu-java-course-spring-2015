@@ -49,7 +49,7 @@ package tw.edu.npu.mis;
         mName = name;
         mWindow = window;
         mModel = model;
-        mModel.Add((java.util.Observer) this);
+        mModel.Add(this);
     }
 
     /**
