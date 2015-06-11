@@ -42,7 +42,10 @@ public class Calculator {
         MEM_MINUS, // M-
         MEM_RECALL   // MR
     }
-
+/**
+ * 存放數字
+ * @param digit 傳入的數字
+ */
     public void appendDigit(int digit) {
 
         mOperand = String.valueOf(digit);
@@ -51,18 +54,26 @@ public class Calculator {
             total = digit;
         }
     }
-
+/**
+ * 存放 點 號
+ */
     public void appendDot() {
        // dot=true;
         //operand +=".";
 
     }
-
+/**
+ * 改變運算符號
+ * @param operator 傳入運算符號之字串
+ */
     public void performOperation(String operator) {
         this.operator = operator;
 
     }
-
+/**
+ * 顯示畫面
+ * @return 傳回畫面值
+ */
     public String getDisplay() {
         return String.valueOf(total);
     }
@@ -70,17 +81,24 @@ public class Calculator {
     Calculator() {
         reset();
     }
-
+/**
+ * 
+ * @param c 
+ */
     public void addTotalListener(CalculatorView c) {
         totalListeners.add(c);
     }
-
+/**
+ * 
+ */
     public void notifyTotalListeners() {
         for (int i = 0; i < totalListeners.size(); i++) {
             totalListeners.get(i).updateTotal(String.valueOf(total));
         }
     }
-
+/**
+ * 重設值
+ */
     public void reset() {
         total = 0;
         notifyTotalListeners();
@@ -89,19 +107,21 @@ public class Calculator {
 
     }
 
-    //=
+   /**
+    * 選擇運算方式
+    */
     public void equal() {
         switch (operator) {
-            case "+":
+            case "＋":
                 total += Integer.valueOf(mOperand);
                 break;
-            case "*":
+            case "＊":
                 total *= Integer.valueOf(mOperand);
                 break;
-            case "-":
+            case "－":
                 total -= Integer.valueOf(mOperand);
                 break;
-            case "/":
+            case "／":
                 total /= Integer.valueOf(mOperand);
                 break;
             case "√":

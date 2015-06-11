@@ -15,17 +15,25 @@ public class CalcController {
 
     private Calculator model;
     private CalculatorView view;
-
+/**
+ * 
+ * @param model 
+ */
     CalcController(Calculator model) {
         this.model = model;
         view = new CalculatorView(model, this);
 
     }
-
+/**
+ * 
+ */
     public void clear() {
         model.reset();
     }
-
+/**
+ * 
+ * @param operator 
+ */
     void setoperator(String operator) {
         model.performOperation(operator);
     }
@@ -36,5 +44,7 @@ public class CalcController {
     public static void main(String[] args) {
         Calculator model = new Calculator();
         CalcController controller = new CalcController(model);
+        
+        
     }
 }
