@@ -37,8 +37,8 @@ public class CalculatorView extends javax.swing.JFrame {
     }
     String operand = "";
 /**
- * 
- * @param button 
+ * 取得數字
+ * @param button 數字按鍵
  */
     public void getOperand(javax.swing.JButton button) {
         operand += button.getText();
@@ -46,29 +46,29 @@ public class CalculatorView extends javax.swing.JFrame {
         totalTf.setText(operand);
     }
 /**
- * 
- * @param value 
+ * 更新顯示畫面
+ * @param value 顯示值
  */
     void updateTotal(String value) {
         totalTf.setText(value);
     }
 /**
- * 
- * @return 
+ * 取得使用者輸入值
+ * @return 傳回值
  */
     String getUserInput() {
         return operand;
     }
 /**
- * 
- * @param newTotal 
+ * 設定顯示畫面
+ * @param newTotal 顯示畫面
  */
     void setTotal(String newTotal) {
         totalTf.setText(newTotal);
     }
 /**
  * get運算符號
- * @param operatorBtn 
+ * @param operatorBtn 運算符號之按鍵
  */
    
     private void getoperator(JButton operatorBtn) {
