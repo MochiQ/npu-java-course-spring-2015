@@ -16,8 +16,8 @@ public class Calculator {
     private boolean dot = false;
     private double total = 0;//顯示
     //運算符號，數字
-    private String operator = "", mOperand;
-    private ArrayList<CalculatorView> totalListeners = new ArrayList<CalculatorView>();
+    private String mOperator = "", mOperand;
+    private ArrayList<CalculatorView> TotalListeners = new ArrayList<CalculatorView>();
 
     /**
      * The available operators of the calculator.
@@ -50,7 +50,7 @@ public class Calculator {
 
         mOperand = String.valueOf(digit);
 
-        if (operator.equals("")) {
+        if (mOperator.equals("")) {
             total = digit;
         }
     }
@@ -67,7 +67,7 @@ public class Calculator {
  * @param operator 傳入運算符號之字串
  */
     public void performOperation(String operator) {
-        this.operator = operator;
+        this.mOperator = operator;
 
     }
 /**
@@ -86,14 +86,14 @@ public class Calculator {
  * @param c 
  */
     public void addTotalListener(CalculatorView c) {
-        totalListeners.add(c);
+        TotalListeners.add(c);
     }
 /**
  * 
  */
     public void notifyTotalListeners() {
-        for (int i = 0; i < totalListeners.size(); i++) {
-            totalListeners.get(i).updateTotal(String.valueOf(total));
+        for (int i = 0; i < TotalListeners.size(); i++) {
+            TotalListeners.get(i).updateTotal(String.valueOf(total));
         }
     }
 /**
@@ -102,7 +102,7 @@ public class Calculator {
     public void reset() {
         total = 0;
         notifyTotalListeners();
-        this.operator = "";
+        this.mOperator = "";
         this.mOperand = "";
 
     }
@@ -111,7 +111,7 @@ public class Calculator {
     * 選擇運算方式
     */
     public void equal() {
-        switch (operator) {
+        switch (mOperator) {
             case "＋":
                 total += Integer.valueOf(mOperand);
                 break;
@@ -133,8 +133,12 @@ public class Calculator {
             case "±":
                 total = -total;
                 break;
+            case "X^2":
+                total = total*total;
+                break;
         }
         notifyTotalListeners();
+        
     }
 
 }
