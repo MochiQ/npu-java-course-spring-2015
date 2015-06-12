@@ -53,6 +53,7 @@ public class Calculator {
         if (mOperator.equals("")) {
             total = digit;
         }
+        notifyTotalListeners();
     }
 /**
  * 存放 點 號
@@ -68,6 +69,7 @@ public class Calculator {
  */
     public void performOperation(String operator) {
         this.mOperator = operator;
+        notifyTotalListeners();
 
     }
 /**
@@ -76,20 +78,21 @@ public class Calculator {
  */
     public String getDisplay() {
         return String.valueOf(total);
+        
     }
 
     Calculator() {
         reset();
     }
 /**
- * 
+ * 加入通知
  * @param c 
  */
     public void addTotalListener(CalculatorView c) {
         TotalListeners.add(c);
     }
 /**
- * 
+ * 通知
  */
     public void notifyTotalListeners() {
         for (int i = 0; i < TotalListeners.size(); i++) {
@@ -101,10 +104,10 @@ public class Calculator {
  */
     public void reset() {
         total = 0;
-        notifyTotalListeners();
+        
         this.mOperator = "";
         this.mOperand = "";
-
+        notifyTotalListeners();
     }
 
    /**

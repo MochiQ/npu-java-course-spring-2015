@@ -22,7 +22,7 @@ public class CalcController {
     CalcController(Calculator model) {
         this.model = model;
         view = new CalculatorView(model, this);
-
+        view = new CalculatorView(model, this);
     }
 /**
  * 清除
